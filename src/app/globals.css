@@ -1,28 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Pastel Light Theme Color Palette */
-  --bg-primary: #fcf9f6;          /* Warm cream white */
-  --bg-secondary: #f4ece1;        /* Oatmeal cream */
-  --pastel-pink: #fbcbc9;         /* Rose quartz */
-  --pastel-pink-light: #fef0ef;   /* Blush highlight */
-  --pastel-lavender: #dcd0ff;     /* Soft lilac */
-  --pastel-lavender-light: #f4f0ff;
-  --pastel-mint: #c1f0db;         /* Soft mint */
-  --pastel-blue: #c2e2ec;         /* Soft powder blue */
-  --pastel-peach: #ffd8be;        /* Soft peach */
+  /* Custom Brand Palette (Warm, Organic, Premium) */
+  --bg-primary: #F9F7F2;          /* Cotton White */
+  --bg-secondary: #F2EFE9;        /* Warm Stone / Oatmeal */
+  --pastel-pink: #E07A5F;         /* Terracotta Accent */
+  --pastel-pink-light: #FDF3F0;   /* Light Terracotta Tint */
+  --pastel-lavender: #D8DEE9;
+  --pastel-lavender-light: #ECEFF4;
+  --pastel-mint: #81B29A;         /* Sage Green */
+  --pastel-blue: #A3C1AD;
+  --pastel-peach: #F2CC8F;        /* Soft Ochre */
   
-  --text-dark: #3a322d;           /* Warm dark brown/charcoal */
-  --text-muted: #726258;          /* Soft brown grey */
-  --accent-color: #e49390;        /* Deep dusty rose */
-  --accent-hover: #d27976;
+  --text-dark: #3D405B;           /* Deep Slate */
+  --text-muted: #5D6075;          /* Muted Slate */
+  --accent-color: #E07A5F;        /* Terracotta */
+  --accent-hover: #C9664B;        /* Darker Terracotta */
   
   --font-sans: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
   
-  --shadow-sm: 0 4px 6px -1px rgba(114, 98, 88, 0.05);
-  --shadow-md: 0 10px 15px -3px rgba(114, 98, 88, 0.08);
-  --shadow-lg: 0 20px 25px -5px rgba(114, 98, 88, 0.12);
+  --shadow-sm: 0 4px 6px -1px rgba(61, 64, 91, 0.05);
+  --shadow-md: 0 10px 15px -3px rgba(61, 64, 91, 0.08);
+  --shadow-lg: 0 20px 25px -5px rgba(61, 64, 91, 0.12);
   --border-radius-sm: 12px;
   --border-radius-md: 20px;
   --border-radius-lg: 32px;
