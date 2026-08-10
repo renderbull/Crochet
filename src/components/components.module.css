@@ -1,0 +1,255 @@
+/* Header Component Styles */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(252, 249, 246, 0.8);
+  border-bottom: 1px solid rgba(114, 98, 88, 0.06);
+  padding: 1rem 2rem;
+  transition: var(--transition-smooth);
+}
+
+.headerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logoIcon {
+  color: var(--pastel-pink);
+  animation: spinSlow 20s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navLink {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 0.25rem 0;
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-color);
+  transition: var(--transition-smooth);
+}
+
+.navLink:hover {
+  color: var(--accent-color);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+.cartButton {
+  background: var(--pastel-pink-light);
+  border: 1px solid var(--pastel-pink);
+  color: var(--accent-color);
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+}
+
+.cartButton:hover {
+  background: var(--pastel-pink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.mobileMenuBtn {
+  display: none;
+  color: var(--text-dark);
+}
+
+/* Footer & Contact Section Styles */
+.footer {
+  background-color: var(--bg-secondary);
+  padding: 4rem 2rem 2rem 2rem;
+  border-top: 1px solid rgba(114, 98, 88, 0.08);
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 4rem;
+}
+
+.footerBrand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footerLogo {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent-color);
+}
+
+.footerText {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.footerHeading {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.footerLinks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footerLink {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.footerLink:hover {
+  color: var(--accent-color);
+  padding-left: 4px;
+}
+
+.footerContact {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.contactInfoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.contactIcon {
+  color: var(--accent-color);
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.footerActionBtn {
+  background: var(--pastel-pink);
+  color: var(--text-dark);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: var(--transition-smooth);
+  width: fit-content;
+}
+
+.footerActionBtn:hover {
+  background: var(--accent-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.copyright {
+  max-width: 1200px;
+  margin: 3rem auto 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(114, 98, 88, 0.06);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* Call Button Notification Toast */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: white;
+  border-left: 4px solid var(--pastel-mint);
+  padding: 1rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 1000;
+}
+
+.toastTitle {
+  font-weight: 600;
+  color: var(--text-dark);
+  font-size: 0.9rem;
+}
+
+.toastDesc {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+  }
+  .nav {
+    display: none; /* In simple responsive setup, or toggleable menu */
+  }
+  .mobileMenuBtn {
+    display: block;
+  }
+  .footerContainer {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
