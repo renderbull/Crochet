@@ -63,7 +63,10 @@ export function extractThemeFromImage(imageUrl: string): Promise<ColorTheme> {
 
   return new Promise((resolve) => {
     const img = new Image();
-    img.crossOrigin = 'Anonymous';
+    // Only set crossOrigin if the image is remote, to prevent local relative path CORS block
+    if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+      img.crossOrigin = 'Anonymous';
+    }
     img.src = imageUrl;
 
     img.onload = () => {
