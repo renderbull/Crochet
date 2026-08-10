@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageSquare, Phone } from 'lucide-react';
 import { Product } from '@/lib/products';
+import { extractThemeFromImage, ColorTheme, DEFAULT_THEME } from '@/lib/colorExtractor';
 import styles from './Products.module.css';
 
 interface ProductModalProps {
@@ -12,12 +13,18 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
+  const [theme, setTheme] = useState<ColorTheme>(DEFAULT_THEME);
+
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (product) {
       document.body.style.overflow = 'hidden';
+      if (product.images && product.images[0]) {
+        extractThemeFromImage(product.images[0]).then(setTheme);
+      }
     } else {
       document.body.style.overflow = 'unset';
+      setTheme(DEFAULT_THEME);
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -53,6 +60,13 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
       <div className={styles.modalOverlay} onClick={onClose}>
         <motion.div 
           className={styles.modalContent}
+          style={{
+            ['--theme-accent' as any]: theme.accent,
+            ['--theme-accent-hover' as any]: theme.accentHover,
+            ['--theme-light-bg' as any]: theme.lightBg,
+            ['--theme-border' as any]: theme.border,
+            ['--theme-glow' as any]: theme.glow,
+          }}
           onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}

@@ -80,8 +80,8 @@
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--pastel-pink);
+  box-shadow: 0 12px 24px -6px var(--theme-glow, var(--shadow-md));
+  border-color: var(--theme-accent, var(--pastel-pink));
 }
 
 .imageWrapper {
@@ -107,15 +107,16 @@
   position: absolute;
   top: 1rem;
   left: 1rem;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--theme-light-bg, rgba(255, 255, 255, 0.85));
   backdrop-filter: blur(4px);
   padding: 0.35rem 0.75rem;
   border-radius: 50px;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--accent-color);
+  color: var(--theme-accent, var(--accent-color));
   letter-spacing: 0.05rem;
+  border: 1px solid var(--theme-border, rgba(114, 98, 88, 0.05));
 }
 
 .cardBody {
@@ -154,8 +155,8 @@
 }
 
 .viewBtn {
-  background: var(--pastel-pink-light);
-  color: var(--accent-color);
+  background: var(--theme-light-bg, var(--pastel-pink-light));
+  color: var(--theme-accent, var(--accent-color));
   padding: 0.5rem 1rem;
   border-radius: var(--border-radius-sm);
   font-weight: 600;
@@ -167,8 +168,8 @@
 }
 
 .viewBtn:hover {
-  background: var(--pastel-pink);
-  color: var(--text-dark);
+  background: var(--theme-accent, var(--pastel-pink));
+  color: white;
 }
 
 /* Custom Orders Section */
@@ -244,7 +245,8 @@
   max-width: 850px;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 40px -10px var(--theme-glow, var(--shadow-lg));
+  border: 1px solid var(--theme-border, rgba(114, 98, 88, 0.05));
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -296,7 +298,7 @@
 }
 
 .modalCategory {
-  color: var(--accent-color);
+  color: var(--theme-accent, var(--accent-color));
   font-weight: 700;
   font-size: 0.8rem;
   text-transform: uppercase;
@@ -363,15 +365,16 @@
 }
 
 .callBtn {
-  background: var(--pastel-pink);
-  color: #6d2f2d;
-  border: 1px solid rgba(109, 47, 45, 0.1);
+  background: var(--theme-light-bg, var(--pastel-pink));
+  color: var(--theme-accent, #6d2f2d);
+  border: 1px solid var(--theme-border, rgba(109, 47, 45, 0.1));
 }
 
 .callBtn:hover {
-  background: #fcaeae;
+  background: var(--theme-accent, #fcaeae);
+  color: white;
   transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 10px var(--theme-glow, var(--shadow-sm));
 }
 
 @media (max-width: 768px) {
