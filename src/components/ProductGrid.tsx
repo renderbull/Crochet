@@ -34,19 +34,27 @@ export default function ProductGrid() {
   return (
     <section id="creations" className={styles.section}>
       <div className={styles.sectionHeader}>
-        <h2 className={styles.title}>Handmade Creations</h2>
+        <span className={styles.sectionTagline}>Handmade Gallery</span>
+        <h2 className={styles.title}>Explore Creations</h2>
         <p className={styles.subtitle}>
-          Explore our collection of yarn crafts, carefully hand-stitched with love and high quality materials.
+          Carefully hand-stitched yarn pieces, bringing timeless craftsmanship and whimsical designs to life.
         </p>
       </div>
 
-      {/* Category Tabs */}
+      {/* Category Tabs with sliding background */}
       <div className={styles.categoriesWrapper}>
         <button 
           onClick={() => setSelectedCategory('all')}
           className={`${styles.categoryBtn} ${selectedCategory === 'all' ? styles.categoryBtnActive : ''}`}
         >
-          All Creations
+          {selectedCategory === 'all' && (
+            <motion.span 
+              layoutId="activeCategoryBg" 
+              className={styles.activeCategoryBg} 
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+            />
+          )}
+          <span className={styles.categoryText}>All Creations</span>
         </button>
         {CATEGORIES.map((category) => (
           <button
@@ -54,15 +62,23 @@ export default function ProductGrid() {
             onClick={() => setSelectedCategory(category.slug)}
             className={`${styles.categoryBtn} ${selectedCategory === category.slug ? styles.categoryBtnActive : ''}`}
           >
-            {category.name}
+            {selectedCategory === category.slug && (
+              <motion.span 
+                layoutId="activeCategoryBg" 
+                className={styles.activeCategoryBg} 
+                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              />
+            )}
+            <span className={styles.categoryText}>{category.name}</span>
           </button>
         ))}
       </div>
 
       {/* Grid */}
       {loading ? (
-        <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)' }}>
-          Loading beautiful creations...
+        <div className={styles.loadingWrapper}>
+          <div className={styles.spinner}></div>
+          <p>Loading beautiful creations...</p>
         </div>
       ) : (
         <motion.div className={styles.grid} layout>
@@ -86,3 +102,4 @@ export default function ProductGrid() {
     </section>
   );
 }
+

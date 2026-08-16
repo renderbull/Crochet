@@ -98,13 +98,13 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
             <div className={styles.actionSection}>
               <h4 className={styles.actionHeading}>Order & Inquiries</h4>
               <div className={styles.btnGroup}>
-                <button onClick={handleWhatsappOrder} className={`${styles.modalBtn} ${styles.whatsappBtn}`}>
-                  <MessageSquare size={18} />
-                  <span>Order via WhatsApp</span>
-                </button>
                 <button onClick={handleCallOrder} className={`${styles.modalBtn} ${styles.callBtn}`}>
-                  <Phone size={18} />
-                  <span>Call to Order</span>
+                  <Phone size={18} color="#f59e0b" />
+                  <span>Contact</span>
+                </button>
+                <button onClick={handleWhatsappOrder} className={`${styles.modalBtn} ${styles.whatsappBtn}`}>
+                  <MessageSquare size={18} color="#34d399" />
+                  <span>WhatsApp</span>
                 </button>
               </div>
             </div>

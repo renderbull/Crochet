@@ -33,10 +33,16 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
         ['--theme-glow' as any]: theme.glow,
       }}
       layout
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.95 }}
-      transition={{ duration: 0.4 }}
+      whileHover={{ y: -8, scale: 1.02 }}
+      transition={{ 
+        type: 'spring', 
+        stiffness: 300, 
+        damping: 20, 
+        layout: { duration: 0.3 } 
+      }}
     >
       <div className={styles.imageWrapper}>
         <div className={styles.cardCategory}>{product.category.replace('-', ' ')}</div>
