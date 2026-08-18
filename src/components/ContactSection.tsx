@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Phone, MessageSquare, Heart, MapPin, Mail, ClipboardCheck } from 'lucide-react';
+import { Phone, MessageSquare, Heart, MapPin, Mail, Flower } from 'lucide-react';
 import styles from './components.module.css';
 
 export default function ContactSection() {
@@ -28,7 +28,10 @@ export default function ContactSection() {
     <footer id="contact" className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerBrand}>
-          <h3 className={styles.footerLogo}>Priya</h3>
+          <h3 className={styles.footerLogo}>
+            <Flower className={styles.footerLogoIcon} size={32} />
+            <span>Priya</span>
+          </h3>
           <p className={styles.footerText}>
             Every piece is thoughtfully handcrafted with love, patience, and attention to detail, bringing warmth, beauty, and a personal touch to every creation.
           </p>
@@ -47,16 +50,20 @@ export default function ContactSection() {
           <h4 className={styles.footerHeading}>Get in Touch</h4>
           
           <div className={styles.contactInfoItem}>
-            <MapPin className={styles.contactIcon} size={18} />
-            <span>Handcrafted locally with premium materials</span>
+            <div className={styles.contactIcon}>
+              <MapPin size={18} />
+            </div>
+            <span>Handcrafted locally in Mumbai, India</span>
           </div>
 
           <div className={styles.contactInfoItem}>
-            <Mail className={styles.contactIcon} size={18} />
+            <div className={styles.contactIcon}>
+              <Mail size={18} />
+            </div>
             <span>inquiries@handmadebypriya.art</span>
           </div>
 
-          <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem', flexWrap: 'wrap' }}>
             <button onClick={handleCall} className={styles.footerActionBtn} aria-label="Call Priya">
               <Phone size={16} />
               <span>Call Priya</span>
@@ -64,14 +71,14 @@ export default function ContactSection() {
 
             <button onClick={handleWhatsappGeneral} className={styles.footerActionBtn} style={{ backgroundColor: 'var(--pastel-mint)' }} aria-label="WhatsApp Priya">
               <MessageSquare size={16} />
-              <span>WhatsApp</span>
+              <span>WhatsApp Chat</span>
             </button>
           </div>
         </div>
       </div>
 
       <div className={styles.copyright}>
-        <p>&copy; {new Date().getFullYear()} Priya Handcrafted Art. Made with <Heart size={14} style={{ display: 'inline', color: 'var(--accent-color)', fill: 'var(--accent-color)' }} /> and passion.</p>
+        <p>&copy; {new Date().getFullYear()} Priya Handcrafted Art. Made with <Heart size={14} style={{ display: 'inline', color: 'var(--accent-color)', fill: 'var(--accent-color)' }} /> in India.</p>
       </div>
     </footer>
   );

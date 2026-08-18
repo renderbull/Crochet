@@ -89,6 +89,7 @@
 .titleHighlight {
   background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--accent-hover) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
 }

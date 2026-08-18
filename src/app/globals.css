@@ -1,37 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 :root {
-  /* Custom Brand Palette (Warm, Organic, Premium) */
-  --bg-primary: #FDFCF7;          /* Cotton White (Brightened) */
-  --bg-secondary: #F6F4EE;        /* Warm Stone / Oatmeal */
-  --pastel-pink: #E07A5F;         /* Terracotta Accent */
-  --pastel-pink-light: #FDF3F0;   /* Light Terracotta Tint */
-  --pastel-lavender: #E4E7EB;
-  --pastel-lavender-light: #F0F2F5;
-  --pastel-mint: #81B29A;         /* Sage Green */
-  --pastel-blue: #A3C1AD;
-  --pastel-peach: #F2CC8F;        /* Soft Ochre */
+  /* Rich, warm studio color palette */
+  --bg-primary: #FAF8F5;          /* Super soft alabaster cream */
+  --bg-secondary: #F3ECE5;        /* Natural oat linen */
+  --pastel-pink: #D96A53;         /* Clay Terracotta (Slightly deeper/richer) */
+  --pastel-pink-light: #FAF0EC;   /* Delicate Terracotta tint */
+  --pastel-lavender: #EAE6E1;      /* Linen dust */
+  --pastel-lavender-light: #F4F1ED;
+  --pastel-mint: #6E9B84;         /* Rich sage green */
+  --pastel-blue: #8CABB0;         /* Soft dusty teal */
+  --pastel-peach: #E5B26E;        /* Warm mustard ochre */
   
-  --text-dark: #2B2C3C;           /* Rich slate black */
-  --text-muted: #6A6D85;          /* Sophisticated grey */
-  --accent-color: #E07A5F;        /* Terracotta */
-  --accent-hover: #C9664B;        /* Darker Terracotta */
+  --text-dark: #1E202B;           /* Deep obsidian slate */
+  --text-muted: #5A5E78;          /* Refined linen shadow */
+  --accent-color: #D96A53;        /* Terracotta */
+  --accent-hover: #C5563F;        /* Deeper clay */
   
   --font-sans: 'Outfit', sans-serif;
   --font-serif: 'Playfair Display', serif;
   
-  /* Modern soft shadows */
-  --shadow-sm: 0 4px 12px rgba(43, 44, 60, 0.03);
-  --shadow-md: 0 12px 24px -4px rgba(43, 44, 60, 0.06);
-  --shadow-lg: 0 24px 48px -8px rgba(43, 44, 60, 0.12);
-  --shadow-glow: 0 20px 40px -10px rgba(224, 122, 95, 0.2);
+  /* Drop Shadows & Depth */
+  --shadow-sm: 0 4px 16px rgba(30, 32, 43, 0.02);
+  --shadow-md: 0 12px 32px -4px rgba(30, 32, 43, 0.05);
+  --shadow-lg: 0 24px 56px -8px rgba(30, 32, 43, 0.08);
+  --shadow-glow: 0 16px 32px -6px rgba(217, 106, 83, 0.25);
+  --shadow-mint-glow: 0 16px 32px -6px rgba(110, 155, 132, 0.25);
   
-  --border-radius-sm: 12px;
-  --border-radius-md: 20px;
-  --border-radius-lg: 32px;
+  --border-radius-sm: 14px;
+  --border-radius-md: 24px;
+  --border-radius-lg: 36px;
   
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -64,67 +65,65 @@ button {
   outline: none;
 }
 
-/* Modern Gradient Text helper */
+/* Typography & Utility classes */
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-dark) 30%, var(--accent-color) 100%);
+  background: linear-gradient(135deg, var(--text-dark) 40%, var(--accent-color) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 /* Glassmorphism Panel helper */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 /* Ambient glow blobs */
 .glow-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.45;
+  filter: blur(120px);
+  opacity: 0.3;
   z-index: 0;
   pointer-events: none;
-  mix-blend-mode: multiply;
 }
 
-/* Micro animations and custom utility classes */
 .floating-element {
-  animation: float 8s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-element-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
 }
 
 @keyframes float {
   0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(-12px) rotate(3deg); }
+  50% { transform: translateY(-8px) rotate(2deg); }
   100% { transform: translateY(0px) rotate(0deg); }
 }
 
 @keyframes float-reverse {
   0% { transform: translateY(0px) rotate(0deg); }
-  50% { transform: translateY(12px) rotate(-3deg); }
+  50% { transform: translateY(8px) rotate(-2deg); }
   100% { transform: translateY(0px) rotate(0deg); }
 }
 
-.floating-element-reverse {
-  animation: float-reverse 9s ease-in-out infinite;
-}
-
-/* Smooth custom scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(224, 122, 95, 0.3);
+  background: rgba(217, 106, 83, 0.25);
+  border-radius: 8px;
   border: 2px solid var(--bg-primary);
-  border-radius: 6px;
   transition: var(--transition-smooth);
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-color);
 }
-

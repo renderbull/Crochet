@@ -17,14 +17,10 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
 
   // Prevent body scroll when modal is open
   useEffect(() => {
-    if (product) {
-      document.body.style.overflow = 'hidden';
-      if (product.images && product.images[0]) {
-        extractThemeFromImage(product.images[0]).then(setTheme);
-      }
-    } else {
-      document.body.style.overflow = 'unset';
-      setTheme(DEFAULT_THEME);
+    if (!product) return;
+    document.body.style.overflow = 'hidden';
+    if (product.images && product.images[0]) {
+      extractThemeFromImage(product.images[0]).then(setTheme);
     }
     return () => {
       document.body.style.overflow = 'unset';
@@ -61,12 +57,12 @@ export default function ProductModal({ product, onClose }: ProductModalProps) {
         <motion.div 
           className={styles.modalContent}
           style={{
-            ['--theme-accent' as any]: theme.accent,
-            ['--theme-accent-hover' as any]: theme.accentHover,
-            ['--theme-light-bg' as any]: theme.lightBg,
-            ['--theme-border' as any]: theme.border,
-            ['--theme-glow' as any]: theme.glow,
-          }}
+            '--theme-accent': theme.accent,
+            '--theme-accent-hover': theme.accentHover,
+            '--theme-light-bg': theme.lightBg,
+            '--theme-border': theme.border,
+            '--theme-glow': theme.glow,
+          } as React.CSSProperties}
           onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}

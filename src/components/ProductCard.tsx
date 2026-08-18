@@ -26,12 +26,12 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
       className={styles.card}
       style={{
         // Inject dynamic theme colors as custom properties
-        ['--theme-accent' as any]: theme.accent,
-        ['--theme-accent-hover' as any]: theme.accentHover,
-        ['--theme-light-bg' as any]: theme.lightBg,
-        ['--theme-border' as any]: theme.border,
-        ['--theme-glow' as any]: theme.glow,
-      }}
+        '--theme-accent': theme.accent,
+        '--theme-accent-hover': theme.accentHover,
+        '--theme-light-bg': theme.lightBg,
+        '--theme-border': theme.border,
+        '--theme-glow': theme.glow,
+      } as React.CSSProperties}
       layout
       initial={{ opacity: 0, y: 24 }}
       animate={{ opacity: 1, y: 0 }}

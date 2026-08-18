@@ -1,0 +1,152 @@
+.customSection {
+  padding: 8rem 2rem;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid rgba(217, 106, 83, 0.05);
+}
+
+.customContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  background: white;
+  border: 1px solid rgba(217, 106, 83, 0.08);
+  padding: 4.5rem 3.5rem;
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.taglineWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--pastel-pink-light);
+  padding: 0.4rem 1.25rem;
+  border-radius: 50px;
+  width: fit-content;
+  border: 1px solid rgba(217, 106, 83, 0.08);
+  margin-bottom: 1.5rem;
+}
+
+.sparkleIcon {
+  color: var(--accent-color);
+}
+
+.tagline {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.1rem;
+  color: var(--accent-color);
+}
+
+.customTitle {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.customText {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 3.5rem;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.input,
+.select,
+.textarea {
+  background: var(--bg-primary);
+  border: 1.5px solid rgba(30, 32, 43, 0.08);
+  border-radius: var(--border-radius-sm);
+  padding: 1rem 1.25rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: var(--transition-fast);
+  outline: none;
+}
+
+.input:focus,
+.select:focus,
+.textarea:focus {
+  background: white;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(217, 106, 83, 0.08);
+}
+
+.textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+.submitBtn {
+  background: var(--text-dark);
+  color: white;
+  padding: 1.1rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  transition: var(--transition-smooth);
+  box-shadow: var(--shadow-sm);
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-glow);
+}
+
+@media (max-width: 768px) {
+  .customContainer {
+    padding: 3rem 1.5rem;
+  }
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .customTitle {
+    font-size: 2.2rem;
+  }
+}
