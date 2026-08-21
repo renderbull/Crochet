@@ -4,7 +4,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Eye } from 'lucide-react';
 import { Product } from '@/lib/products';
-import { extractThemeFromImage, ColorTheme, DEFAULT_THEME } from '@/lib/colorExtractor';
+import { getCategoryTheme, ColorTheme } from '@/lib/colorExtractor';
+import Image from 'next/image';
 import styles from './Products.module.css';
 
 interface ProductCardProps {
@@ -13,13 +14,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({ product, onViewDetails }: ProductCardProps) {
-  const [theme, setTheme] = useState<ColorTheme>(DEFAULT_THEME);
-
-  useEffect(() => {
-    if (product.images && product.images[0]) {
-      extractThemeFromImage(product.images[0]).then(setTheme);
-    }
-  }, [product.images]);
+  const theme = getCategoryTheme(product.category);
 
   return (
     <motion.div 
@@ -46,10 +41,12 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
     >
       <div className={styles.imageWrapper}>
         <div className={styles.cardCategory}>{product.category.replace('-', ' ')}</div>
-        <img 
+        <Image 
           src={product.images[0]} 
           alt={product.name} 
           className={styles.image}
+          width={400}
+          height={400}
           loading="lazy"
         />
       </div>

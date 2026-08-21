@@ -3,6 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Heart, Leaf, Compass } from 'lucide-react';
+import Image from 'next/image';
 import styles from './AboutSection.module.css';
 
 export default function AboutSection() {
@@ -19,10 +20,13 @@ export default function AboutSection() {
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
           <div className={styles.imageWrapper}>
-            <img 
+            <Image 
               src="/accessories/accessories_02.jpeg" 
               alt="Crafting crochet art" 
               className={styles.aboutImage}
+              width={500}
+              height={667}
+              priority={false}
             />
             <div className={styles.experienceBadge}>
               <span className={styles.expNumber}>100%</span>

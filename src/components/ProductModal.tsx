@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, MessageSquare, Phone } from 'lucide-react';
 import { Product } from '@/lib/products';
-import { extractThemeFromImage, ColorTheme, DEFAULT_THEME } from '@/lib/colorExtractor';
+import { getCategoryTheme, ColorTheme, DEFAULT_THEME } from '@/lib/colorExtractor';
 import styles from './Products.module.css';
 
 interface ProductModalProps {
@@ -13,15 +13,12 @@ interface ProductModalProps {
 }
 
 export default function ProductModal({ product, onClose }: ProductModalProps) {
-  const [theme, setTheme] = useState<ColorTheme>(DEFAULT_THEME);
+  const theme = product ? getCategoryTheme(product.category) : DEFAULT_THEME;
 
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (!product) return;
     document.body.style.overflow = 'hidden';
-    if (product.images && product.images[0]) {
-      extractThemeFromImage(product.images[0]).then(setTheme);
-    }
     return () => {
       document.body.style.overflow = 'unset';
     };

@@ -15,6 +15,69 @@ export const DEFAULT_THEME: ColorTheme = {
   glow: 'rgba(228, 147, 144, 0.15)'
 };
 
+// Curated harmonious themes for each product category
+export const CATEGORY_THEMES: Record<string, ColorTheme> = {
+  'rakhi': {
+    accent: 'hsl(14, 75%, 45%)',      // Warm terracotta / deep orange
+    accentHover: 'hsl(14, 75%, 38%)',
+    lightBg: 'hsl(14, 75%, 96%)',
+    border: 'hsl(14, 50%, 88%)',
+    glow: 'hsla(14, 75%, 45%, 0.15)'
+  },
+  'couple-rakhi': {
+    accent: 'hsl(343, 65%, 48%)',  // Soft raspberry / deep rose
+    accentHover: 'hsl(343, 65%, 41%)',
+    lightBg: 'hsl(343, 65%, 97%)',
+    border: 'hsl(343, 40%, 90%)',
+    glow: 'hsla(343, 65%, 48%, 0.15)'
+  },
+  'earrings': {
+    accent: 'hsl(215, 60%, 48%)',    // Classic pastel denim / slate blue
+    accentHover: 'hsl(215, 60%, 41%)',
+    lightBg: 'hsl(215, 60%, 96%)',
+    border: 'hsl(215, 40%, 89%)',
+    glow: 'hsla(215, 60%, 48%, 0.15)'
+  },
+  'accessories': {
+    accent: 'hsl(28, 50%, 45%)',     // Bronze / warm caramel
+    accentHover: 'hsl(28, 50%, 38%)',
+    lightBg: 'hsl(28, 50%, 96%)',
+    border: 'hsl(28, 30%, 88%)',
+    glow: 'hsla(28, 50%, 45%, 0.15)'
+  },
+  'hair-accessories': {
+    accent: 'hsl(158, 45%, 40%)',  // Pastel emerald / sage green
+    accentHover: 'hsl(158, 45%, 33%)',
+    lightBg: 'hsl(158, 45%, 96%)',
+    border: 'hsl(158, 30%, 88%)',
+    glow: 'hsla(158, 45%, 40%, 0.15)'
+  },
+  'keychains': {
+    accent: 'hsl(280, 50%, 48%)',    // Soft lavender / amethyst
+    accentHover: 'hsl(280, 50%, 41%)',
+    lightBg: 'hsl(280, 50%, 97%)',
+    border: 'hsl(280, 35%, 90%)',
+    glow: 'hsla(280, 50%, 48%, 0.15)'
+  }
+};
+
+/**
+ * Returns a static, pre-curated color theme based on the product category.
+ */
+export function getCategoryTheme(category: string): ColorTheme {
+  const cat = (category || '').toLowerCase().trim();
+  if (CATEGORY_THEMES[cat]) {
+    return CATEGORY_THEMES[cat];
+  }
+  // Fallback matching logic
+  for (const key of Object.keys(CATEGORY_THEMES)) {
+    if (cat.includes(key) || key.includes(cat)) {
+      return CATEGORY_THEMES[key];
+    }
+  }
+  return DEFAULT_THEME;
+}
+
 /**
  * Converts RGB color values to HSL.
  */
